@@ -49,7 +49,7 @@ def transform_load_data(task_instance):
     now = datetime.now()
     dt_string = now.strftime("%d%m%Y%H%M%S")
     dt_string = 'current_weather_data_portland_' + dt_string
-    df_data.to_csv(f"s3://weatherapiairflowyoutubebucket-yml/{dt_string}.csv", index=False, storage_options=aws_credentials)
+    df_data.to_csv(f"s3://weatherapiairflowbucket-yml/{dt_string}.csv", index=False, storage_options=aws_credentials)
 
 
 
