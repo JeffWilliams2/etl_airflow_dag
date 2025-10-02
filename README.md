@@ -1,15 +1,22 @@
-# etl_airflow_dag
-Build and Automate an ETL process that extracts current weather data from open weather map API, transforms the data and loads the data into an S3 bucket using Apache Airflow. 
+# Weather ETL Pipeline
+An Apache Airflow pipeline that pulls weather data from OpenWeatherMap API, processes it, and stores it in a Amazon S3 bucket.
 
-## Commands
-- sudo apt update
-- sudo apt install python3-pip
-- sudo apt install python3.10-venv
-- python3 -m venv airflow_venv
-- sudo pip install pandas
-- sudo pip install s3fs
-- sudo pip install apache-airflow
-- airflow standalone
-- sudo apt  install awscli
-- aws configure
-- aws sts get-session-token
+## What It Does
+
+This DAG runs daily to:
+1. Check if the OpenWeatherMap API is available
+2. Fetch current weather data for Portland
+3. Convert temperatures from Kelvin to Fahrenheit
+4. Save the processed data as a CSV file in an S3 bucket
+
+## Prerequisites
+- AWS acct
+- OpenWeatherMap API key
+
+Each file contains:
+- City name
+- Weather description
+- Temperature (current, feels like..., min, max)
+- Pressure and humidity
+- Wind speed
+- Timestamp and sunrise/sunset times
